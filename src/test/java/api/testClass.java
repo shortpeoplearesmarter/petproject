@@ -1,7 +1,6 @@
 package api;
 
-import Entities.RequestBody;
-import io.cucumber.java.hu.Ha;
+import Entities.RequestBodyTwo;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -16,7 +15,7 @@ public class testClass {
     @Test
     public void testToken(){
         String endPoint = "https://backend.cashwise.us/api/myaccount/auth/login";
-        RequestBody requestBody = new RequestBody();
+        RequestBodyTwo requestBody = new RequestBodyTwo();
 
         requestBody.setEmail("ajgerasydykova2@gmail.com");
         requestBody.setPassword("Kaspersky1230");
@@ -74,11 +73,13 @@ public class testClass {
         String token = CAshwiseToken.getToken();
 
         Map<String, Object> params = new HashMap<>();
-        params.put("isArchived", false);
+        params.put("isArchived", true);
         params.put("page", 1);
         params.put("size", 10);
 
         Response response = RestAssured.given().auth().oauth2(token).params(params).get(url);
+
+        response.prettyPrint();
         int statusCode = response.statusCode();
 
         Assert.assertEquals(200, statusCode);
@@ -88,7 +89,7 @@ public class testClass {
         for (String email : emails){
             Assert.assertFalse(email.isEmpty());
         }
-
-
     }
+
+
 }

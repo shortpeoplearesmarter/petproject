@@ -3,6 +3,7 @@ package api;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import utilities.Config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +12,7 @@ public class IntroToAPI {
     public static void main(String[] args) {
 
         String baseUri = "https://backend.cashwise.us";
-        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MjQ5Nzg4MDksImlhdCI6MTcyMjM4NjgwOSwidXNlcm5hbWUiOiJTQWRhc2Rhc2RAR21haWwuY29tIn0.ifFTocP1yN3kAidkao1Z1oriUICeZ8IYU9CKkpMxHiflicU_HZVDFb1dfY9L5TrpXRPedXRNKR93PzXCjlxRPQ";
+        String token = Config.getProperty("cashwiseToken");
 
 //            RestAssured.given()
 //                .auth()

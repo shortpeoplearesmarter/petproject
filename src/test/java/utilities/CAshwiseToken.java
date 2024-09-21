@@ -1,9 +1,10 @@
 package utilities;
 
-import Entities.RequestBody;
+import Entities.RequestBodyTwo;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import okhttp3.RequestBody;
 
 public class CAshwiseToken {
 
@@ -12,7 +13,7 @@ public class CAshwiseToken {
         //not hitting anything yet
 
         String endPoint = "https://backend.cashwise.us/api/myaccount/auth/login";
-        RequestBody requestBody = new RequestBody();
+        RequestBodyTwo requestBody = new RequestBodyTwo();
 
         requestBody.setEmail("ajgerasydykova2@gmail.com");
         requestBody.setPassword("Kaspersky1230");
